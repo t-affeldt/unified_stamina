@@ -1,0 +1,9 @@
+{
+    "type": "MOD",
+    "title": "Unified Stamina API",
+    "dev_state": "ACTIVELY_DEVELOPED",
+    "tags": ["library", "player_effects"],
+    "repo": "https://github.com/t-affeldt/unified_stamina",
+    "issue_tracker": "https://github.com/t-affeldt/unified_stamina/issues",
+    "license": "MIT"
+}
