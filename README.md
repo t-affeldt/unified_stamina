@@ -9,6 +9,9 @@ every single sprint mod through the same API. You will get the same functions no
 ## How to use
 
 ```lua
+-- true if a compatible sprint mod has been found
+local is_active = unified_stamina.active
+
 -- get current stamina value of a given player
 -- return float between 0 and 1
 -- always return 1 if no mod with a stamina bar is present
