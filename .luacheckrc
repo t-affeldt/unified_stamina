@@ -40,5 +40,6 @@ stds.sprint_mods.read_globals = {
     "hb",
     "minetest_wadsprint",
     "sprint_lite",
-    "real_stamina"
+    "real_stamina",
+    "cmo"
 }

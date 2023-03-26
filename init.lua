@@ -1,5 +1,9 @@
 local mod_hudbars = minetest.get_modpath("hudbars") ~= nil
 local mod_hbsprint = minetest.get_modpath("hbsprint") ~= nil
+local mod_minetest_wadsprint = minetest.get_modpath("minetest_wadsprint") ~= nil
+local mod_sprint_lite = minetest.get_modpath("sprint_lite") ~= nil
+local mod_real_stamina = minetest.get_modpath("real_stamina") ~= nil
+local mod_cmo_stamina = minetest.get_modpath("cmo_stamina") ~= nil
 
 unified_stamina = {}
 unified_stamina.active = true
@@ -50,7 +54,7 @@ if mod_hbsprint then
 
 -- MOD: minetest_wadsprint
 
-elseif minetest_wadsprint ~= nil then
+elseif mod_minetest_wadsprint and minetest_wadsprint ~= nil then
     unified_stamina.active_mod = "minetest_wadsprint"
     function unified_stamina.get_scale()
         return 100
@@ -70,7 +74,7 @@ elseif minetest_wadsprint ~= nil then
 
 -- MOD: sprint_lite
 
-elseif sprint_lite ~= nil then
+elseif mod_sprint_lite and sprint_lite ~= nil then
     unified_stamina.active_mod = "sprint_lite"
     local scale = tonumber(minetest.settings:get("sprint_lite_max_stamina")) or 20
 
@@ -92,7 +96,7 @@ elseif sprint_lite ~= nil then
 
 -- MOD: real_stamina
 
-elseif real_stamina ~= nil then
+elseif mod_real_stamina and real_stamina ~= nil then
     unified_stamina.active_mod = "real_stamina"
     function unified_stamina.get_scale()
         return 20
@@ -116,6 +120,18 @@ elseif real_stamina ~= nil then
         local change = math.round(math.min(20, math.max(0, total - current)))
         real_stamina.change(player, change)
     end
+
+-- MOD: cmo_stamina (from Combat & Movement Overhaul)
+
+elseif mod_cmo_stamina and cmo ~= nil and cmo.stamina ~= nil then
+    unified_stamina.active_mod = "cmo_stamina"
+    function unified_stamina.get_scale()
+        return 100
+    end
+
+    unified_stamina.get = cmo.stamina.get
+    unified_stamina.set = cmo.stamina.set
+    unified_stamina.add = cmo.stamina.add
 
 -- FALLBACK
 

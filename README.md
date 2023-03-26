@@ -14,7 +14,7 @@ local is_active = unified_stamina.active
 
 -- get current stamina value of a given player
 -- return float between 0 and 1
--- always return 1 if no mod with a stamina bar is present
+-- always returns 1 if no mod with a stamina bar is present
 local stamina_value = unified_stamina.get(player_name)
 
 -- sets the current stamina value of a given player
@@ -30,6 +30,7 @@ unified_stamina.add(player_name, change)
 
 -- returns the scale of the stamina bar for display purposes
 -- a return value of e.g. 20 means that a player has a total value of 20 points at 100%
+-- returns 100 if no mod with a stamina bar is present
 local display_scale = unified_stamina.get_scale()
 ```
 
